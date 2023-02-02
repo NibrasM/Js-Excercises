@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // seperated object for teacher and students
+      // const teacher = {
+      //     name: "bob",
+      //     age: 47,
+      //     address: "jlm",
+      //     salary: 10000
+      // };
+
+      // const student = {
+      //     name: "alice",
+      //     age: 15,
+      //     address: 'TLV',
+      //     classses: []
+      // };
+
+      // // function constructor
+
+      // const Person = function (name, age, address) {
+      //     this.name = name;
+      //     this.age = age;
+      //     this.address = address;
+      // };
+
+      // new
+      // const teacher1 = new Person("bob", 47, 'jlm');
+      // const teacher2 = new Person("eve", 50, 'hifa');
+
+      // const Student = function (classes) {
+      //     this.classes = classes;
+      // };
+
+      // const student1 = new Student(['math', 'english']);
+
+      // function constructors, "new"
+      // function Person(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      // }
+      // const yishai = new Person('yishai', 34);
+      // console.log('yishai', yishai, typeof yishai);
+      // console.log('name', yishai.name);
+
+      // new with obj
+      // const obj = new { name: "yair" };
+
+      // update original class
+      // const muhammad = new ('muhammad', 25);
+      // console.log('Person', Person);
+      // console.log('muhammad.grade', muhammad.grade); // not updating!
+
+      // empty array demo - browser - show prototype
+
+      // instances has __proto__
+      // const obj = {};
+      // console.log('prototype', obj.__proto__);
+
+      //  contructor functions has prototype
+      const Animal = function () {};
+      // console.log(Animal.prototype);
+
+      // best is to use method:
+      // console.log(Object.getPrototypeOf(Animal));
+      // console.log(Object.getPrototypeOf(obj));
+
+      // update orignal constuctor
+      // Animal.prototype.name = "bob";
+      // const cat = new Animal();
+      // console.log('cat', cat);
+      // console.log(cat.name); // name was found!
+
+      // connect objects with .prototype
+      // const obj1 = {};
+      // const obj2 = { name: "yishai" };
+      // DONT USE IN REAL LIFE
+      // obj1.__proto__ = obj2;
+      // console.log(obj1.name);
+
+      // use method - not recommended
+      // Object.setPrototypeOf(obj1, obj2);
+      // console.log(obj1.name);
+
+      // best: create a new object and or assign
+      // create
+      // const newObj = Object.create(obj2);
+      // console.log('newObj', newObj);
+      // console.log(newObj.name);
+      // // assign with functions
+      // const f1 = {
+      //     sayName() {
+      //         console.log('name: ', this.name);
+      //     }
+      // };
+      // function Namer(name) {
+      //     this.name = name;
+      // }
+
+      // Object.assign(Namer.prototype, f1);
+      // const myNamer = new Namer("bob");
+      // console.log('myNamer', myNamer);
+      // myNamer.sayName();
+
+      // const obj6 = {};
+      // const obj7 = { name: "yishai" };
+      // Object.assign(obj6.__proto__, obj7); // NOT RECOMENDED!!!
+      // console.log('obj6 name', obj6.name);
+
+      // with classes
+
+      class Person {
+        constructor(name, age, addr) {
+          this.name = name;
+          this.age = age;
+          this.addr = addr;
+          this.sayName = function () {
+            console.log("name is ", this.name);
+          };
+        }
+      }
+
+      const person1 = new Person("bob", 45, "jlm");
+      console.log("person1", person1);
+
+      class Student extends Person {
+        constructor(classes) {
+          super("alice", 14, "tlv");
+          this.classes = classes;
+        }
+      }
+
+      const student1 = new Student(["math", "english"]);
+      console.log("student1", student1);
+
+      // class Pet {
+      //     // every class must have a constructor, where we set props
+      //     constructor(name) {
+      //         this.name = name;
+      //         this.legs = 4;
+      //     }
+      //     makeSound(sound) {
+      //         console.log('my name is', this.name, 'and im making sound:', sound);
+      //     }
+      // }
+
+      // const pet1 = new Pet('skippy');
+      // pet1.makeSound('rrrrr');
+      // // inheritance
+      // class Dog extends Pet {
+      //     constructor(name) {
+      //         super(); // must, calls the parent class constructor
+      //         this.name = name;
+      //         this.hasTail = true;
+      //     }
+      // }
+
+      // const dog1 = new Dog('rex');
+      // dog1.makeSound('bark');
+    </script>
+  </body>
+</html>

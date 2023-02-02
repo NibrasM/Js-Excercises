@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //the bug is in line 16 it goes out of the array bundries, arr[10] doesn't exist, because array index starts from 0 and ends with 9, also this is not the correct way to get the evens from an array, it should be tested using if statment, but it works for this array onl. 
+        function getSumOfEven(arr) {
+            return arr[1] + arr[3] + arr[5] + arr[7] +
+                arr[9];
+        }
+        console.log(getSumOfEven([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+    </script>
+</body>
+
+</html>

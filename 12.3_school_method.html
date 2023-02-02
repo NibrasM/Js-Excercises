@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const school = {
+            teachers: [
+                {
+                    id: 1,
+                    name: "Pinchas",
+                    subjects: ["chemistry", "biology", "physics"],
+                    students: [],
+                    capacityLeft: 3,
+                },
+                {
+                    id: 2,
+                    name: "Williams",
+                    subjects: ["history", "ethics"],
+                    students: [],
+                    capacityLeft: 2,
+                },
+            ],
+            students: [
+                {
+                    id: 10,
+                    name: "Jennifer",
+                    age: 20,
+                },
+                {
+                    id: 11,
+                    name: "Howard",
+                    age: 23,
+                },
+                {
+                    id: 12,
+                    name: "Old-Timmy",
+                    age: 86,
+                },
+                {
+                    id: 13,
+                    name: "Houston",
+                    age: 21,
+                },
+            ],
+        };
+
+        //1
+        function findPerson(type, id) {
+            let per;
+            if (type === "teacher") {
+                const t = school.teachers.filter(c => {
+                    if (c.id === id) {
+                        per = c;
+                    }
+                });
+            }
+            else if (type === "student") {
+                const s = school.students.filter(c => {
+                    if (c.id === id) {
+                        per = c;
+                    }
+                });
+            }
+            return per;
+        }
+
+        console.log(findPerson("teacher", 2));
+        console.log(findPerson("student", 11));
+
+        //2
+        function assignStudent(id, subject) {
+            let student = findPerson("student", id);
+            let sub;
+            let assigned = false;
+
+            const t = school.teachers.filter(teacher => {
+
+                if (teacher.subjects.includes(subject)) {
+                    if (teacher.capacityLeft > 0) {
+                        teacher.students.push(student);
+                        teacher.capacityLeft -= 1;
+                        assigned = true;
+                        return;
+                    }
+                    if (assigned === false) {
+                        console.log("Sorry, no available teachers left fo student " + student.name + " in " + subject + " class");
+                    }
+                }
+            });
+        }
+
+        assignStudent(10, "biology");
+        assignStudent(11, "biology");
+        assignStudent(12, "biology");
+        assignStudent(13, "ethics");
+        assignStudent(10, "ethics");
+        assignStudent(11, "ethics");
+
+        //3
+        function assignTeachersSubject(id, subject) {
+            let teacher = findPerson("teacher", id);
+            if (!teacher.subjects.includes(subject)) {
+                teacher.subjects.push(subject);
+            }
+        }
+        assignTeachersSubject(1, "calc");
+        assignTeachersSubject(1, "biology");
+
+        //4
+
+        function increaseTeachersCapacity(id, capacity) {
+            let teacher = findPerson("teacher", id);
+            teacher.capacityLeft += capacity;
+        }
+
+        increaseTeachersCapacity(2, 1);
+
+        console.log(school.teachers);
+
+
+    </script>
+</body>
+
+</html>

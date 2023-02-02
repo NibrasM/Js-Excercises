@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        //at line 15 x is still 10 but line 17 will excute all the time because of true, so it defines another x with value 20, and line 19 prints 20, and the point here that line 21 can see the second x only beacuse it is override the first one
+        console.log(" ------------------------Block 1------------------------");
+        var x = 10;
+        console.log(x);
+        if (true) {
+            var x = 20;
+            console.log(x);
+        }
+        console.log(x);
+
+        //first it prints 10 then inside the function it overrides x with 20 and prints 20, but line 33 will print 10 because x=20 is not available out of the function scope
+        console.log(" ------------------------Block 2------------------------");
+        var x = 10;
+        console.log(x);
+        if (true) {
+            (function () {
+                var x = 20;
+                console.log(x);
+            })();
+        }
+        console.log(x);
+
+        // it printnts 10 20 30 20 10 , line 40 redfine x=20 so it prints x=20, line 43 redefine x=30 with let so it can be seen only inside if scope, after that it treats x as 20, out of the function x is still 10 because var scope is inside the function only. 
+        console.log(" ------------------------Block 3------------------------");
+        var x = 10;
+        console.log(x);
+        function test() {
+            var x = 20;
+            console.log(x);
+            if (x > 10) {
+                let x = 30;
+                console.log(x);
+            }
+            console.log(x);
+        }
+        test();
+        console.log(x);
+
+        //x inside the function is redeclared without a value so it is undefined here.
+        console.log(" ------------------------Block 4------------------------");
+        var x;
+        x = 10;
+        function test() {
+            var x;
+            if (x > 20) {
+                x = 50;
+            }
+            console.log(x);
+        }
+        test();
+        
+        
+        //x and y are declared without values so it is undefined, but at line 75 it is defined with value 100 , so it will print -> undefined undefined 100
+        console.log(" ------------------------Block 5------------------------");
+        function test() {
+            var x, y;
+            if (false) {
+                x = 50;
+            }
+            console.log(x);
+            console.log(y);
+            y = 100;
+            console.log(y);
+        }
+        test();
+        
+
+        // foo is defined as a function but bar defined as a var so we can't see its value as a function; , instead move it to line 97 so its value can be seen 
+        console.log(" ------------------------Block 6------------------------");
+
+        function test() {
+            foo();
+            bar();
+            // Function defiened
+            // using function declaration
+            function foo() {
+                console.log('foo');
+            }
+            // Function defined
+            // using function expression
+            var bar = function () {
+                console.log('bar');
+            }
+            
+        }
+        test();
+        
+        </script>
+</body>
+
+</html>

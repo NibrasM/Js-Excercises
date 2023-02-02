@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1
+        const book1 = {
+            name: "Java",
+            year: "2022",
+            auther: "MMM"
+        }
+
+        function swap(book1) {
+            const swapped = Object.entries(book1).map(
+                ([key, value]) => [value, key]
+            );
+
+            return Object.fromEntries(swapped);
+        }
+
+        console.log(swap(book1));
+    </script>
+</body>
+
+</html>

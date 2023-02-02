@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = ["Hello", "Good Day", "Your Welcome", "hotdog",
+            "hamburgers"];
+
+       function countLetters (arr) {
+        let key='', value=0;
+            let letters = arr.join('');
+            letters = letters.split(' ').join('')
+            letters = letters.toLowerCase();
+            // console.log(onestring);
+            let result = {}
+            for (let i = 0; i < letters.length; i++) {
+                key=letters[i]+key;
+                value[key]=0;
+                result[key] = value;
+                key='';
+            }
+            for (let i = 0; i < letters.length; i++) {
+                result['' + letters[i]]++;
+            }
+            return result;
+        }
+
+        let result = countLetters(array);
+        console.log(result);
+
+        let max, amount = 0;
+        for (let key in result) {
+            if (result.hasOwnProperty(key)) {
+                if (result[key] >= amount) {
+                    max = key;
+                    amount = result[key];
+                }
+            }
+        }
+        console.log(max);
+        
+    </script>
+</body>
+
+</html>

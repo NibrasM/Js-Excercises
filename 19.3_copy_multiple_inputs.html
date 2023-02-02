@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        align-items: center;
+    }
+
+    input {
+        width: 50px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #verify {
+        background-color: black;
+        color: white;
+        width: 80px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+
+    <h1>Text to copy</h1>
+    <h2>123456</h2>
+    <form  onsubmit="onSubmit(event)">
+        <input type="text" id="digit" name="digit" value="" >
+        <input type="text" id="digit" name="digit" value="">
+        <input type="text" id="digit" name="digit" value="">
+        <input type="text" id="digit" name="digit" value="">
+        <input type="text" id="digit" name="digit" value="">
+        <input type="text" id="digit" name="digit" value="">
+        <br><br>
+        <button id="verify" type="submit">Verify</button>
+        <p id="demo">
+
+        </p>
+    </form>
+    <script>
+
+        const inputElements = [...document.querySelectorAll('input#digit')]
+
+        inputElements.forEach((ele, index) => {
+           
+            ele.addEventListener('input', (e) => {
+            
+                const [first, ...rest] = e.target.value
+                e.target.value = first ?? ''  //if first is null assign value to ''
+                const lastInputBox = index === inputElements.length - 1
+                const didInsertContent = first !== undefined
+                if (didInsertContent && !lastInputBox) {
+                    inputElements[index + 1].focus()
+                    inputElements[index + 1].value = rest.join('')
+                    inputElements[index + 1].dispatchEvent(new Event('input'))
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

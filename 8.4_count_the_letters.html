@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = ["Hello", "Good Day", "Your Welcome", "hotdog",
+            "hamburgers"];
+
+        function countLetters(arr) {
+            let key = '', value = 0;
+            let letters = arr.join('');
+            letters = letters.split(' ').join('')
+            letters = letters.toLowerCase();
+
+            let result = {}
+            for (let i = 0; i < letters.length; i++) {
+                key = letters[i] + key;
+                value[key] = 0;
+                result[key] = value;
+                key = '';
+            }
+            for (let i = 0; i < letters.length; i++) {
+                result['' + letters[i]]++;
+            }
+            return result;
+        }
+
+        let result = countLetters(array);
+        console.log(result);
+
+        let max, amount = 0;
+        for (let key in result) {
+            if (result.hasOwnProperty(key)) {
+                if (result[key] >= amount) {
+                    max = key;
+                    amount = result[key];
+                }
+            }
+        }
+        console.log("the letter with the most occurrences is " + max + " that has " + amount + " occurrences");
+
+
+        //bad try
+
+        function countLetters2(array) {
+
+            var tmpname = '', tmpvalue = {}, result = {}, count = 0, i = 0;
+
+            for (let i of array) {
+                tmpname = i;
+                count = 0;
+                for (let j of array) {
+
+                    if (i === j) {
+                        count++;
+                    }
+                    tmpvalue[i] = count;
+
+                }
+                if (tmpname) {
+                    if (!result.hasOwnProperty(tmpname)) {
+                        result[tmpname] = tmpvalue;
+                    }
+                }
+            }
+            return result;
+        }
+
+        function count(array) {
+            var tmpname = '', tmpvalue = {}, result = {}, i = array.length;
+
+            while (i--) {
+                for (let j of array[i]) {
+                    var letter = i[j];
+
+                    if (letter === ' ') {
+                        result[tmpname] = tmpvalue;
+                        tmpname = '';
+                        tmpvalue = {};
+                    }
+                    else {
+                        tmpname = letter + tmpname;
+                        tmpvalue[letter] = (tmpvalue[letter] || 0) + 1;
+                    }
+                }
+
+                if (tmpname) {
+                    result[tmpname] = tmpvalue;
+                }
+            }
+
+            return result;
+        }
+
+        function count1(array) {
+            let key = '', value = {}, result = {};
+            for (i of array) {
+                for (j of i) {
+                    let letter = j;
+                    if (letter === ' ') {
+                        result[key] = value;
+                        key = '';
+                        value = {};
+                    }
+                    else if (letter in result) {
+                        value[letter]++;
+                    }
+                    else {
+                        key = letter + key;
+                        value[letter] = (value[letter] || 0) + 1;
+                        result[key] = value;
+
+                    }
+                }
+
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>

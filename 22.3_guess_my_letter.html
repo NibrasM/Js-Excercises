@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Welcome to Guess My Letter</h1>
+        <p id="random">?</p>
+        <h2 id="result"></h2>
+        <div id="new-game">
+        <h2>Would you like to play again?</h2>
+        <button id="start-game">Yes</button>
+        </div>
+        <h1>keys guessed</h1>
+        <p id="letters"></p>
+    </center>
+
+    <script>
+        function randomLetter() {
+            const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+            return alphabet[Math.floor(Math.random() * alphabet.length)]
+        }
+
+        const letter = document.getElementById("random");
+        const res = document.getElementById("result");
+        const newGame= document.getElementById("new-game");
+        newGame.style.visibility="hidden";
+
+        const start=document.getElementById("start-game");
+    
+
+        let r =randomLetter();
+        let letters = [];
+        console.log(r+" rand");
+
+        document.addEventListener('keydown', (event) => {
+            event.preventDefault();
+            let n = event.key;
+            let result=guess(n,r);
+            if(result===true){
+                letter.innerHTML=r;
+                res.innerHTML="Right letter!";
+                res.style.color="green";
+                newGame.style.visibility="visible";
+
+            }
+            else {
+               
+                res.innerHTML="Nope, wronng letter!";
+                res.style.color="red";
+                if(letters.includes(n)){
+                    alert("you already guessed the letter");
+                    return;
+                }
+                if(!(event.keyCode >=65 && event.keyCode<=90) ){
+                    alert("you must enter a letter");
+                    return;
+                }
+                letters.push(n);
+                const lettersArray = document.getElementById("letters");
+                lettersArray.innerHTML=letters.join(",");
+            }
+
+            
+        });
+start.addEventListener('click', (e)=>{
+e.preventDefault();
+
+letter.innerHTML="?";
+res.innerHTML="";
+newGame.style.visibility="hidden";
+
+})
+
+
+        function guess(random, pressed) {
+
+            if (random === pressed)
+                return true;
+            
+                return false;
+        }
+    </script>
+</body>
+
+</html>

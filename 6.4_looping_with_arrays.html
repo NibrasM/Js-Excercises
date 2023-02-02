@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function percentageOfWorld1(population) {
+            let percentage = (population / 7900) * 100;
+            return percentage;
+        }
+        function populationPercentages(population) {
+            let percentages = [];
+
+            for (let i = 0; i < population.length; i++) {
+                percentages[i] = percentageOfWorld1(population[i]);
+            }
+
+            return percentages;
+        }
+        let population = [1441, 20, 30, 80];
+
+        let percentages = populationPercentages(population);
+        for (let i = 0; i < population.length; i++) {
+            console.log(percentages[i].toFixed(1));
+        }
+    </script>
+</body>
+
+</html>

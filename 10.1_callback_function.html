@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isString(str, func) {
+            if (typeof str === "string") {
+                func(str);
+            }
+        }
+        function logToConsole(str) {
+            console.log(str);
+        }
+
+        isString("hello", logToConsole);
+
+
+
+        function firstWordUpperCase(str, f) {
+
+            var newstr = str.split(/\s+/).slice(1).join(" ");
+
+            var captalized = str.split(/\s+/).slice(0, 1).join(" ").toUpperCase();
+
+            var newstr2 = captalized + (" ").concat(newstr);
+
+            f(newstr2);
+        }
+
+
+        function createDashes(str) {
+            var newstr = str.split(/\s+/).join("-");
+            console.log(newstr);
+
+        }
+
+        firstWordUpperCase("my name is nibras", createDashes);
+
+        let x = "hi";
+        let y = "i am a student";
+
+        function myOwn(x, y, f1, f2) {
+
+            f1(x, logToConsole);
+            f2(y, createDashes);
+        }
+
+        myOwn(x, y, isString, firstWordUpperCase);
+    </script>
+</body>
+
+</html>

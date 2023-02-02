@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //line 23 the function name is not the same in call and definition, and also there is a logical error in line 15 and 17 , should use && operation for comparison  
+        function findSmallest(a, b, c) {
+            if (a > c && b > c) {
+                return c;
+            } else if (a > b && c > b) {
+                return b;
+            } else  {
+                return a;
+            }
+           
+        }
+       console.log( findSmallest(52, 66, 2));
+    </script>
+</body>
+
+</html>

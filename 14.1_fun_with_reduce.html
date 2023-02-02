@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //max
+
+        let nums = [100, 51, 1001, 20];
+
+        const maximum = nums.reduce((max, currentValue) => {
+            if (currentValue > max)
+                return currentValue;
+            return max;
+        });
+
+        const sum_even = nums.reduce((sum, currentValue) => {
+            if (currentValue % 2 == 0) {
+                sum += currentValue;
+            }
+            return sum;
+        });
+
+        let sum = 0;
+        const average = nums.reduce((sum, currentValue) =>
+            (sum + currentValue)) / nums.length;
+
+        console.log("Max is " + maximum);
+        console.log("Sum of even is " + sum_even);
+        console.log("AVG is " + average);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const movies = [{
+            title: 'Good',
+            rating: 4.5,
+            id: 111
+        },
+        {
+            title: 'Nice',
+            rating: 4.9,
+            id: 555
+        },
+        {
+            title: 'Bad',
+            rating: 2.3,
+            id: 666
+        },
+        ];
+
+        console.log(f1(movies));
+        console.log(f2(movies));
+
+
+        function f1(movies) {
+            let newArr = [];
+            movies.forEach(function (movie) {
+                newArr.push({
+                    title: movie.title,
+                    id: movie.id
+                });
+            });
+
+            return newArr;
+        }
+
+        function f2(movies) {
+            let newArr = [];
+            movies.map(function (movie) {
+                newArr.push({
+                    title: movie.title,
+                    id: movie.id
+                });
+            });
+
+            return newArr;
+        }
+    </script>
+</body>
+
+</html>

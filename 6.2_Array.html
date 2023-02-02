@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("1>>>>>>>");
+        let people = ["Greg", "Mary", "Devon", "James"];
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+        console.log("2>>>>>>>");
+        people.shift();
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+
+        console.log("3>>>>>>>");
+        people.pop();
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+
+        console.log("4>>>>>>>");
+        people.unshift("Matt");
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+
+        console.log("5>>>>>>>");
+        people.push("Nibras");
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+
+        console.log("6>>>>>>>");
+        for (let i = 0; i < people.length; i++) {
+            if (people[i] === "Mary") {
+                console.log(people[i]);
+                break;
+            }
+
+            else
+                console.log(people[i]);
+        }
+
+
+        console.log("7>>>>>>>");
+        const people2 = people.slice(2);
+        for (let i = 0; i < people2.length; i++) {
+            console.log(people2[i]);
+        }
+
+        console.log("8>>>>>>>");
+        console.log(people.indexOf("Mary"));
+
+        console.log("9>>>>>>>");
+        console.log(people.indexOf("Foo"));
+
+        console.log("10>>>>>>>");
+        people = ["Greg", "Mary", "Devon", "James"];
+        people.splice(2, 1, "Elizabeth", "Artie");
+        for (let i = 0; i < people.length; i++) {
+            console.log(people[i]);
+        }
+
+        console.log("11>>>>>>>");
+        let withBob = people.concat("Bob");
+        for (let i = 0; i < withBob.length; i++) {
+            console.log(withBob[i]);
+        }
+
+
+    </script>
+</body>
+
+</html>

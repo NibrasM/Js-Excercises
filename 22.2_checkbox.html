@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">press</button>
+    <img id="img" src="" alt="" />
+    <script>
+      const btnConst = document.getElementById("btn");
+      const imgConst = document.getElementById("img");
+
+      let show = false;
+
+      btnConst.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("Show");
+        if (show) {
+          imgConst.src = "";
+          show = false;
+        } else {
+          imgConst.src = "./imgs/Smiley.png";
+          show = true;
+        }
+      });
+    </script>
+  </body>
+</html>

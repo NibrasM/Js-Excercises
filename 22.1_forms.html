@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" />
+
+      <button type="submit" id="submit">Submit</button>
+    </form>
+    <script>
+      const nameConst = document.getElementById("name");
+      const emailConst = document.getElementById("email");
+      const addressConst = document.getElementById("address");
+      const btnConst = document.getElementById("submit");
+
+      let textFlag = false;
+
+      btnConst.addEventListener("click", (event) => {
+        event.preventDefault();
+        let text = `You have enterd:
+            name: ${nameConst.value}, 
+            email: ${emailConst.value}, 
+            address: ${addressConst.value}. 
+            Do you want to confirm?`;
+
+        if (confirm(text)) {
+          console.log("first");
+          if (textFlag == false) {
+            let okText = document.createElement("p");
+            okText.innerText = `“congratulations you successfully sent this form!`;
+
+            btnConst.insertAdjacentElement("afterend", okText);
+            textFlag = true;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

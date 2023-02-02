@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const data = [
+            {
+                name: "John",
+                birthday: "1-1-1995",
+                favoriteFoods: {
+                    meats: ["hamburgers", "sausages"],
+                    fish: ["salmon", "pike"],
+                },
+            },
+            {
+                name: "Mark",
+                birthday: "10-5-1980",
+                favoriteFoods: {
+                    meats: ["hamburgers", "steak", "lamb"],
+                    fish: ["tuna", "salmon", "barracuda"],
+                },
+            },
+            {
+                name: "Mary",
+                birthday: "1-10-1977",
+                favoriteFoods: {
+                    meats: ["ham", "chicken"],
+                    fish: ["pike"],
+                },
+            },
+            {
+                name: "Thomas",
+                birthday: "1-10-1990",
+                favoriteFoods: {
+                    meats: ["bird", "rooster"],
+                    fish: ["salmon"],
+                },
+            },
+            {
+                name: "Mary",
+                birthday: "1-10-1977",
+                favoriteFoods: {
+                    meats: ["hamburgers", "lamb"],
+                    fish: ["anchovies", "tuna"],
+                },
+            },
+        ];
+
+        const names = data.map(obj => {
+            return obj.name;
+        });
+        console.log(names);
+
+        let a = [];
+        const birthdateBefore = data.forEach(obj => {
+            if (parseInt(obj.birthday.slice(-4)) < 1990) {
+                a.push(obj);
+            }
+        });
+        console.log(a);
+
+        const b = [];
+
+        const different = data.forEach(obj => {
+            let x = 0, y = 0;
+            for (x in obj.favoriteFoods.fish) {
+                b.push(obj.favoriteFoods.fish[x]);
+            }
+            for (y in obj.favoriteFoods.meats) {
+                b.push(obj.favoriteFoods.meats[y]);
+            }
+        });
+
+        const bObj = {};
+        let z = 0;
+        var c = b.reduce((count, item) => (count[item] = count[item] + 1 || 1, count), {});
+        console.log(c);
+
+
+
+    </script>
+</body>
+
+</html>

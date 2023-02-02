@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Header</h1>
+    <p>Paragraph</p>
+    <a href="#">link</a>
+    <img src="" alt="" />
+    <div class="x">Div with a class</div>
+    <div id="y">Div with an id</div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+</body>
+<script>
+const h1_select=document.getElementsByTagName("h1");
+console.log(h1_select[0]);
+const p_select=document.getElementsByTagName("p");
+console.log(p_select[0]);
+const a_select=document.getElementsByTagName("a");
+console.log(a_select[0]);
+const div1_select=document.getElementById("y");
+console.log(div1_select);
+const div2_select=document.getElementsByClassName("x");
+console.log(div2_select[0]);
+
+////////query selector
+console.log("**************query selector");
+
+const h1_selector= document.querySelector("h1");
+console.log(h1_selector);
+const p_selector= document.querySelector("p");
+console.log(p_selector);
+const a_selector= document.querySelector("a");
+console.log(a_selector);
+const div1_selector= document.querySelector("div");
+console.log(div1_selector);
+const div2_selector= document.querySelectorAll("div");
+console.log(div2_selector[1]);
+
+
+const inputs = document.getElementsByTagName("input");
+
+Array.prototype.forEach.call(inputs, function(input) {
+    console.log(input.tagName);
+});
+
+const inputs_query_select = document.querySelectorAll("input");
+
+Array.prototype.forEach.call(inputs_query_select, function(input) {
+    console.log(input.tagName);
+});
+
+
+</script>
+
+</html>

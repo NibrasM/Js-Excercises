@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    function leap(year){
+        if(year%4==0){
+    
+         if( year %100==0 && year %400 ==0){
+            console.log("This is a leap year");
+        }
+        else if(year%100==0 ){
+            console.log("This year is not a leap year");
+        }
+        else
+        console.log("Leap");
+    }
+        else 
+        console.log("This is not a leap ");
+
+    }
+
+    var year=prompt("enter year to check");
+    leap(parseInt(year));
+   </script> 
+</body>
+</html>

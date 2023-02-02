@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="element">hnibras</div>
+    <script>
+        //1
+        console.log(this); //it will print window because it wil refer to the global context
+
+        //2
+        const myObj = {
+            name: "Timmy",
+            greet() {
+                console.log(`Hello ${this.name} baby`);
+            },
+        };
+        myObj.greet();
+        //here the value of this will not change because it is in an arrowfunction, it will refer to the global context to solve it , use the method not in the arrow style, as a regular function
+
+        //3
+        const myFuncDec = function () {
+            console.log(this);
+        };
+        //this here refers to the owner of the function that it is assigned to it should be myFunDec
+
+        //4
+        const myFuncArrow = () => {
+            console.log(this);
+        };
+        myFuncArrow();
+        //this is an arrow function and it will always refer to the global context and will print window
+
+        console.log("5");
+        //5
+        document.querySelector(".element").addEventListener( 'click', function (){
+            console.log(this);
+        });
+//the problem is that it is an arrow and refers to the global context, we need to use the function as a regular function
+    </script>
+</body>
+
+</html>

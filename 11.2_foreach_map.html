@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //1
+        let nums = [1, 2, 3, 4, 5, 6];
+        const doubledValues = nums.map(num => {
+            return num * 2;
+        });
+        console.log(doubledValues);
+
+        //2
+        let newArr = [];
+        const onlyevenValues = nums.forEach(num => {
+            if (num % 2 === 0) {
+                newArr.push(num);
+            }
+        });
+        onlyevenValues
+        console.log(newArr);
+
+        //3
+        let newArr2 = [];
+        let strs = ["hello", "my", "dear"];
+        const showFirstAndLast = strs.forEach(str => {
+            let first = strs[0];
+            let last = strs[strs.length - 1];
+            newArr2 = [first, last];
+        });
+        showFirstAndLast
+        console.log(newArr2);
+
+
+        //4
+        let strs2 = "abecadeafgooooh".split('');
+        let vowel = {
+            a: 0,
+            e: 0,
+            o: 0,
+            i: 0,
+            u: 0
+        };
+        const vowelCount = strs2.forEach(str => {
+            if (str === 'A' || str === 'a') {
+                vowel.a += 1;
+            }
+            if (str === 'E' || str === 'e') {
+                vowel.e += 1;
+            }
+            if (str === 'O' || str === 'o') {
+                vowel.o += 1;
+            }
+            if (str === 'U' || str === 'u') {
+                vowel.u += 1;
+            }
+            if (str === 'I' || str === 'i') {
+                vowel.i += 1;
+            }
+        });
+        vowelCount;
+        console.log(vowel);
+
+        //5
+        let str5 = "hello";
+        let str5Arr = str5.split('');
+
+        const capitalize = str5Arr.map(str => {
+            return str.toUpperCase();
+        });
+
+        console.log(capitalize.join(""));
+
+        //6
+        let str6 = "abc";
+        let str6Arr = str6.split('');
+        let str6encoded = [];
+
+        const replace = str6Arr.map(str => {
+            return str6encoded.push(String.fromCharCode(str.charCodeAt(0) + 1));
+        });
+
+        console.log(str6encoded.join(""));
+
+        //7
+        const str7 = "hello my dear";
+        const str7Array = str7.split(" ");
+        const str7ArrayNew =[];
+
+        const swapCase = str7Array.map(str =>{
+            return str7ArrayNew.push(str.toLocaleUpperCase());
+        });
+
+        console.log(str7ArrayNew);
+
+    </script>
+</body>
+
+</html>

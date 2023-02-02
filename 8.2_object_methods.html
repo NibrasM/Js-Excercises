@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const mycountry = {
+            country: "Jordan",
+            capital: "Amman",
+            language: "Arabic",
+            population: "11.15",
+            neighbours: ["Palestine", "KSA", "Iraq", "Syria"],
+        }
+        mycountry.describe = function () {
+            console.log(this.country + " has " + this.population + " million people, their mother tongue is " + this.language + ", the have " + this.neighbours.length + " countries and a capital called " + this.capital)
+
+        }
+        mycountry.checkIsIsland = function () {
+            if (mycountry.neighbours.length === 0) {
+                return isIsland = true;
+            }
+            else
+                return isIsland = false;
+        }
+
+        mycountry.describe();
+        console.log("is it an Island? "+mycountry.checkIsIsland());
+    </script>
+</body>
+
+</html>

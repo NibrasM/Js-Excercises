@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //line 23 enters the someFunction and goes to line 20 that b=5, then at line 24 it enters the firstResult that returns the value of b whitch is 5. 
+        console.log(" ------------------------Block 1------------------------");
+        var b = 1;
+        function someFunction(number) {
+            function otherFunction(input) {
+                return b;
+            }
+            b = 5;
+            return otherFunction;
+        }
+        var firstResult = someFunction(9);
+        var result = firstResult(2);
+
+        console.log(result);
+
+        // line 37 logs 1 because it has no access to a inside the function, it only can see a's value outside even if it is redfined in the function
+        console.log(" ------------------------Block 2------------------------");
+        var a = 1;
+        function b2() {
+            a = 10;
+            return;
+            function a() { }
+        }
+        b2();
+        console.log(a);
+
+
+        //it should print 0 1 2 but because of the timeout method it delays calling the function for 1 second so the loop iterate all the 3 iterations before the delay stopped, so i becomes 3 then it excutes log , so the result is 3 3 3
+        console.log(" ------------------------Block 3------------------------");
+        let i;
+        for (i = 0; i < 3; i++) {
+            const log = () => {
+                console.log(i);
+            }
+            setTimeout(log, 100);
+        }
+        
+    </script>
+</body>
+
+</html>

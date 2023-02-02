@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1
+        const book1 = {
+            name: "Java",
+            year: "2022",
+            auther: "MMM"
+        }
+        const book2 = {
+            name: "C",
+            year: "2021",
+            auther: "VVV"
+        }
+//2
+        const bookUtils = {}
+
+        //3
+        bookUtils.getFirstPublished= function (book1, book2){
+
+            if (book1.year > book2.year) {
+                return book2;
+            }
+            else if (book2.year > book1.year) {
+                return book1;
+            }
+            else
+                return book1;
+        }
+        //4
+        bookUtils.setNewEdition= function (book, latestEdition){
+            book.edition= latestEdition;
+            return book.edition;
+        }
+        //5
+        bookUtils.setLanguage = function ( book, new_language){
+            book.language=new_language;
+            return book.language;
+        }
+        //6
+        bookUtils.setTranslation = function ( book, new_language, transator){
+            book.translation = {
+                transator: transator,
+                language: new_language
+            }
+            return book.translation;
+        }
+
+          //7
+          bookUtils.setPublisher= function ( book, name, location){
+            book.publisher = {
+                publisherName: name,
+                location: location
+            }
+            return book.publisher;
+        }
+
+        //8
+        bookUtils.isSamePublisher= function ( book1, book2){
+            if(book1.publisher.publisherName===book2.publisher.publisherName){
+            if(book1.publisher.location===book2.publisher.location){
+                return true;
+            }
+        }
+        else
+        return false;
+        }
+
+        console.log(bookUtils.getFirstPublished(book1,book2));
+        console.log(bookUtils.setNewEdition(book1, 2020));
+        console.log(bookUtils.setLanguage(book1,"English"));
+        console.log(bookUtils.setTranslation(book1,"Arabic", "Sara"));
+        console.log(bookUtils.setPublisher(book1,"Sami", "Amman"));
+        console.log(bookUtils.setPublisher(book2,"Rami", "Amman"));
+        console.log(bookUtils.isSamePublisher(book1,book2));
+
+
+    </script>
+</body>
+
+</html>

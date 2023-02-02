@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //bug in line 18, counter+1 will not update the value of the counter, but counter+=1 will do.
+        function countOccurrences(str, char) {
+            let counter = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i) === char) {
+                    counter += 1;
+                }
+            } return counter;
+        }
+       console.log(countOccurrences("ini mini miny moe", "n"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calculateAvg(num1, num2, num3) {
+
+            var sum = num1 + num2 + num3;
+            var avg = sum / 3;
+            return avg;
+        }
+
+        let johnsTeamscore1 = 89;
+        let johnsTeamscore2 = 120;
+        let johnsTeamscore3 = 103;
+
+        let mikesTeam1 = 89;
+        let mikesTeam2 = 120;
+        let mikesTeam3 = 103;
+
+        let marysTeamscore1 = 89;
+        let marysTeamscore2 = 120;
+        let marysTeamscore3 = 103;
+
+
+        let johnsAvg = calculateAvg(johnsTeamscore1, johnsTeamscore2, johnsTeamscore3);
+        let mikesAvg = calculateAvg(mikesTeam1, mikesTeam2, mikesTeam3);
+        let marysAvg = calculateAvg(marysTeamscore1, marysTeamscore2, marysTeamscore3);
+
+        if (johnsAvg > mikesAvg && johnsAvg > marysAvg) {
+            console.log("John's Team is the winner");
+        }
+        else if (mikesAvg > johnsAvg && mikesAvg > marysAvg) {
+            console.log("Mike's Team is the winner");
+        }
+        else if (marysAvg > johnsAvg && marysAvg > mikesAvg) {
+            console.log("Mary's Team is the winner");
+        }
+        else if (johnsAvg == mikesAvg && johnsAvg > marysAvg) {
+            console.log("John's & Mike's Team is Draw");
+        }
+        else if (marysAvg == johnsAvg && marysAvg > mikesAvg) {
+            console.log("Mary's & John's Team is Draw");
+        }
+        else if (marysAvg == mikesAvg && marysAvg > johnsAvg) {
+            console.log("Mary's & Mikes's Team is Draw");
+        }
+
+        else if (marysAvg == johnsAvg && marysAvg < mikesAvg) {
+            console.log("Mike's Team is Draw");
+        }
+        else if (marysAvg == mikesAvg && marysAvg < johnsAvg) {
+            console.log("John's Team is Draw");
+        }
+        else if (johnsAvg == mikesAvg && johnsAvg < marysAvg) {
+            console.log("Mary's Team is Draw");
+        }
+        else {
+            console.log("Draw ")
+        }
+
+
+
+    </script>
+</body>
+
+</html>

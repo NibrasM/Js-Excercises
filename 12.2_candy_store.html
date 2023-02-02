@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const candyStore = {
+            candies: [
+                {
+                    name: "mint gum",
+                    id: "as12f",
+                    price: 2,
+                    amount: 2
+                },
+                {
+                    name: "twix",
+                    id: "5hd7y",
+                    price: 5,
+                    amount: 4
+                },
+            ],
+            cashRegister: 200
+        }
+
+
+        function getCandy(candyStore, id) {
+            const cand = [];
+            const candy = candyStore.candies.filter(c => {
+                if (c.id === id) {
+                    cand.push(c);
+                }
+            });
+            return cand;
+        }
+        console.log(getCandy(candyStore, "5hd7y"));
+
+        function getPrice(candyStore, id) {
+            let cand;
+            const candy = candyStore.candies.filter(c => {
+                if (c.id === id) {
+                    cand = c.price;
+                }
+            });
+            return cand;
+        }
+        console.log(getPrice(candyStore, "5hd7y"));
+
+
+
+        function addCandy(candyStore, id, name, price) {
+            candyStore.candies.push({
+                name: name,
+                id: id,
+                price: price,
+                amount: 1
+            })
+        }
+
+        addCandy(candyStore, "111","yum", 10);
+
+        console.log(candyStore.candies);
+
+        function buy(candyStore, id) {
+            let cand;
+            const candy = candyStore.candies.filter(c => {
+                if (c.id === id) {
+                    cand = c.price;
+                    c.amount-=1;
+                }
+            });
+            candyStore.cashRegister+=cand;
+        }
+
+        buy(candyStore, "5hd7y");
+        console.log(candyStore.cashRegister);
+
+
+
+
+    </script>
+</body>
+
+</html>

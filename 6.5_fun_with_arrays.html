@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = Array(100);
+        const person1 = {
+            name: "nibras",
+            age: 25,
+            school: "birzeit"
+        }
+        const person2 = {
+            name: "fofo"
+        }
+        const person3 = {
+            name: "bobo"
+        }
+        //1.
+        arr.fill(person1);
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i].name);
+        }
+
+        //2.
+        let arr2 = Array.from(Array(101).keys()).slice(1);
+        console.log(arr2);
+
+        //3
+        const propertyNames = Object.values(person1);
+        console.log(propertyNames);
+
+        //4
+        const obj = Object.assign({},propertyNames );
+        console.log(obj);
+
+        //5
+        let result = Array.isArray(propertyNames);
+        console.log(result);
+
+        //6
+        let arr3 = [1, 2, 3, 4, 5];
+        let arr3cloned = arr3.slice();
+        arr3cloned.push(6);
+        console.log(arr3cloned);
+        console.log(arr3);
+
+        //6.1 won't affect orginal array
+        let arr4 = [7, 8, 9];
+        let arr4cloned = Array.from(arr4);
+        arr4.push(6);
+        console.log(arr4cloned);
+        console.log(arr4);
+
+        //6.2 will affect orginal array
+        let arr5 = [20, 30, 40];
+        let arr5cloned = arr5
+        arr5cloned.push(6);
+        console.log(arr5cloned);
+        console.log(arr5);
+    </script>
+</body>
+
+</html>

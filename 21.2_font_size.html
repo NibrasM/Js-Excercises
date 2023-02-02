@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="text">Text here</h1>
+    <button id="large">+</button>
+    <button id="small">-</button>
+
+    <script>
+        const text = document.getElementById("text");
+        const larger = document.getElementById("large");
+        const smaller = document.getElementById("small");
+        let fontSize = 25;
+        text.style.fontSize = fontSize + "px";
+
+
+        larger.addEventListener("click", function (event) {
+            if (fontSize < 90) {
+                fontSize += 10;
+            } else
+                fontSize = 100;
+            text.style.fontSize = fontSize + "px";
+        });
+
+        smaller.addEventListener("click", function (event) {
+            if (fontSize > 16) {
+                fontSize -= 10;
+            } else
+                fontSize = 6;
+            text.style.fontSize = fontSize + "px";
+        });
+
+    </script>
+</body>
+
+</html>
