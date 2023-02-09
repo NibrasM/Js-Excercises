@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+  </head>
+  <style>
+    img {
+      width: 20%;
+    }
+    #not {
+      color: red;
+    }
+  </style>
+  <body>
+    <input type="text" id="name" />
+    <button id="search">search</button>
+    <div id="results"></div>
+  </body>
+  <script>
+    const name = document.getElementById("name");
+    const search = document.getElementById("search");
+    const results = document.getElementById("results");
+    const myKey = "a550375";
+    let output = "";
+    search.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log(name.value);
+      const a = fetch(`http://www.omdbapi.com/?t=${name.value}&apikey=${myKey}`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`Movie with name ${name.value} is not exist`);
+          } else return res.json();
+        })
+        .then((data) => {
+          if (data.Title == undefined) {
+            throw new Error(`Movie with name ${name.value} is not exist`);
+          } else {
+            output = "";
+            output += `<div id="${data.Title}">
+            <img src="${data.Poster}">
+                <h1> Name: ${data.Title} </h1>
+                <h2> Genre: ${data.Genre} </h2>
+                <h2> Year: ${data.Year} </h2>
+                <h2> Plot: ${data.Plot} </h2>
+                <h2> Directors: ${data.Director} </h2>
+                <h2> Actors: ${data.Actors} </h2>
+                <ul> Ratings: `;
+
+            for (let i = 0; i < data.Ratings.length; i++) {
+              output += `<li> Source: ${data.Ratings[i].Source} , Value: ${data.Ratings[i].Value}</li>`;
+            }
+            output += `</ul> </div>`;
+            console.log(data.Ratings.length);
+            document.getElementById("results").innerHTML = output;
+          }
+        })
+        .catch((error) => {
+          output = `<div>
+                <h1 id="not"> ${error}</h1>
+                 </div>`;
+          console.log(error.message);
+          document.getElementById("results").innerHTML = output;
+        });
+    });
+  </script>
+</html>

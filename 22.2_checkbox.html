@@ -7,7 +7,9 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="btn">press</button>
+    <input type="checkbox" id="btn" name="checkbox" value="press" />
+    <label for="checkbox"> show</label><br />
+
     <img id="img" src="" alt="" />
     <script>
       const btnConst = document.getElementById("btn");
@@ -16,13 +18,13 @@
       let show = false;
 
       btnConst.addEventListener("click", (event) => {
-        event.preventDefault();
         console.log("Show");
         if (show) {
           imgConst.src = "";
           show = false;
         } else {
           imgConst.src = "./imgs/Smiley.png";
+          imgConst.style.width = "10%";
           show = true;
         }
       });

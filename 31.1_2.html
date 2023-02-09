@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars</title>
+  </head>
+  <style>
+    img {
+      width: 20%;
+    }
+    #not {
+      color: red;
+    }
+  </style>
+  <body>
+    <input type="text" id="name" />
+    <button id="search">search</button>
+    <div id="results"></div>
+  </body>
+  <script>
+    // fetch the information from the link https://swapi.dev/api/  // done
+    // i want a info about 10 char from the api so i want a for loop //done
+    // We want the following information:
+    // 1. Name
+    // 2. Height
+    // 3. Hair Color
+    // 4. The planet they came from
+    // 5. Planet population
+    // create an array has an object that will store the info
+    const peopleArr = [];
+    const planets = [];
+    async function createStarWarsTable() {
+      // i need to do a for loop to  get the 10 char
+      const table = document.createElement("TABLE");
+      document.body.appendChild(table);
+      const firstRow = document.createElement("tr");
+      const heading = document.createElement("td");
+      heading.textContent = "Star Wars";
+      firstRow.appendChild(heading);
+      table.appendChild(firstRow);
+
+      peopleArr.forEach((person) => {
+        planets.push(person.homeworld);
+      });
+
+      //loop over planets to get planet objects
+      for (i = 0; i < planets.length; i++) {
+        const planetResponse = await fetch(
+          `https://swapi.dev/api/planets/${i}/`
+        ).then((planetResponse) => planetResponse.json());
+        console.log(planetResponse);
+      }
+
+      for (i = 1; i <= 10; i++) {
+        const res = await fetch(`https://swapi.dev/api/people/${i}/`).then(
+          (res) => res.json()
+        );
+        console.log(res);
+        peopleArr.push(res);
+        console.log(peopleArr);
+
+        const firstRow = document.createElement("tr");
+        const name = document.createElement("td");
+        name.textContent = `${res.name}`;
+        firstRow.appendChild(name);
+
+        const hair = document.createElement("td");
+        hair.textContent = `${res.hair_color}`;
+        firstRow.appendChild(hair);
+
+        const height = document.createElement("td");
+        height.textContent = `${res.height}`;
+        firstRow.appendChild(height);
+
+        const planetName = document.createElement("td");
+        height.textContent = `${res.height}`;
+        firstRow.appendChild(height);
+
+        table.appendChild(firstRow);
+      }
+    }
+
+    createStarWarsTable();
+  </script>
+</html>
